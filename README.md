@@ -13,11 +13,30 @@ Features:
 
 ## How to run the container
 
-**TBD**
+### Via `docker run`
 
-### Environment Variables
+```
+docker run -d --net=host \
+            --volume /opt/timemachine:/timemachine/ \
+            --volume /etc/localtime:/etc/localtime:ro \
+            -e TM_PWD=notsosecretpassword \
+            --restart=always \
+            --name=timemachine default50/timemachinesambadocker
+```
 
-| Varibable | Function                             | Default.    |
+For more information about the options for `docker run` visit https://docs.docker.com/engine/reference/run/
+
+### Via `docker-compose`
+
+You can modify the parameters in the sample `docker-compose.sample.yml` file to suit your needs and then rename it to `docker-compose.yml`. To launch the service container just do `docker-compose up -d` in the same directory of of the composer file.
+
+**Note**: you may need to install `compose`. Check https://docs.docker.com/compose/install/
+
+### Environment variables
+
+This is a summary of the environment variables that can be used to override any of the default values.
+
+| Variable  | Function                             | Default.    |
 | ----------|:------------------------------------:|------------:|
 | TM_USER   | POSIX user name inside container     | timemachine |
 | TM_GROUP  | POSIX group name inside container    | timemachine |
