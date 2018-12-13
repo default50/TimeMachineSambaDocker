@@ -47,7 +47,13 @@ This is a summary of the environment variables that can be used to override any 
 
 ## How to build your own image
 
-**TBD**
+You can always build your own image instead of using the image provided through my public repository.
+
+It's as simple as doing `docker build .` in the root of the repository, but it's better if you tag the image with something like this:
+
+```
+docker build --tag default50/timemachinesambadocker .
+```
 
 ### Credits
 
