@@ -1,13 +1,13 @@
 version: '3'
 services:
   samba:
-    image: default50/docker-samba-timemachine:latest
+    image: default50/timemachinesambadocker:latest
     restart: always
     network_mode: host
     environment:
       - TM_USER=timemachine
       - TM_GROUP=timemachine
-      - TM_PW=timemachine
+      - TM_PWD=timemachine
       - TM_UID=1000
       - TM_GID=1000
       - TM_SIZE=300000
