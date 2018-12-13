@@ -55,6 +55,12 @@ It's as simple as doing `docker build .` in the root of the repository, but it's
 docker build --tag default50/timemachinesambadocker .
 ```
 
+### Advanced
+
+It is important to note that the files that Samba will create in the volume that you specify will have the same file UID and GID that you set as `TM_UID` and `TM_GID`. This is only relevant if you run this container as an unprivileged user and you want the files to be accessible by that same user.
+
+Alpine's `busybox` package does not support UID/GIDs higher than 256000 ([see this StackOverflow post](https://stackoverflow.com/questions/41807026/cant-add-a-user-with-a-high-uid-in-docker-alpine)), that's why I'm using the `shadow` package here.
+
 ### Credits
 
 The contents here were mostly obtained from [willtho89/docker-samba-timemachine](https://github.com/willtho89/docker-samba-timemachine)'s repository with some improvements.
